@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pycurly"
+version = "0.1"
+authors = [
+    {name = "Hanish", email = "email@host.com"},
+]
+description = "A simple curl cextension"
+readme = "README.md"
+requires-python = ">=3.8"
+keywords = ["http", "curl"]
+license = "MIT"
+classifiers = [
+    "Programming Language :: Python :: 3",
+]
+
