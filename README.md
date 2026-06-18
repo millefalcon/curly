@@ -1,6 +1,6 @@
 # pycurly
 
-A simple package to demonstrate cextension
+A simple package to demonstrate c-extension and my own amusement.
 
 
 ## Install
