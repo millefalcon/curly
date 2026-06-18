@@ -49,3 +49,6 @@ $ .venv/bin/python -m build
 ## Test
 The package is to demonstrate the cextension, but we may need to add tests later
 
+## Todo
+- Build proper wheel
+
