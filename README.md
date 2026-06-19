@@ -107,3 +107,13 @@ The package is to demonstrate the cextension, but we may need to add tests later
 - ~~Build proper wheel~~
 - fix https
 
+## References
+- https://pythonextensionpatterns.readthedocs.io/en/latest/simple_example.html
+- https://docs.python.org/3/extending/extending.html
+
+
+## What AI did ?
+- I wasn't aware [auditwheel](https://pypi.org/project/auditwheel/) was used to help with making static wheels
+- Helped debug why the libcurl wasn't statically build, because I had `libraries=["curl"]` in `setup.py` which made it set to dynamic on the previous iteration.
+  You can check the commit before this one to see the state of `setup.py`. The remnants are still left as commented out in `Dockerfile`
+
