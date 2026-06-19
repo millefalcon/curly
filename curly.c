@@ -1,4 +1,5 @@
 #define PY_SSIZE_T_CLEAN
+#define CURL_STATICLIB
 #include <stdio.h>
 #include <Python.h>
 #include <curl/curl.h>
