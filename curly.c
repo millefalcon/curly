@@ -15,11 +15,11 @@ size_t write_cb(char* contents, size_t size, size_t nmemb, void* user_data) {
 
 	size_t real_size = size * nmemb;
 
-	char* ptr = realloc(data->data, real_size);
+	char* ptr = realloc(data->data, data->size + real_size + 1);
 
 	if (!ptr) {
 		fprintf(stderr, "realloc() failed\n");
-		return -1;
+		return 0;
 	}
 
 	data->data = ptr;

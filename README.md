@@ -107,7 +107,16 @@ The package is to demonstrate the cextension, but we may need to add tests later
 - ~~Build proper wheel~~
 - fix https
 
+
+## Debug
+```bash
+$ gcc -g -o curly curly.c $(python3.11-config --cflags) $(python3.11-config --ldflags) -lcurl -lpython3.11 -L /usr/lib/x86_64-linux-gnu
+$ valgrind --track-origins=yes --leak-check=full ./curly "https://www.google.com" 
+```
+
+
 ## References
+- https://curl.se/libcurl/c/getinmemory.html
 - https://pythonextensionpatterns.readthedocs.io/en/latest/simple_example.html
 - https://docs.python.org/3/extending/extending.html
 
