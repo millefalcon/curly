@@ -37,6 +37,48 @@ $ .venv/bin/python -m pip install .
     "title": "Sample Slide Show"
   }
 }
+>>>
+>>> print(pycurly.post("http://httpbin.org/post?hello=world", "hello=world", 1))
+*   Trying 35.153.186.200...
+* TCP_NODELAY set
+* Connected to httpbin.org (35.153.186.200) port 80 (#0)
+> POST /post?hello=world HTTP/1.1
+Host: httpbin.org
+accept: application/json
+Content-Length: 11
+Content-Type: application/x-www-form-urlencoded
+
+* upload completely sent off: 11 out of 11 bytes
+< HTTP/1.1 200 OK
+< Date: Sat, 20 Jun 2026 02:50:07 GMT
+< Content-Type: application/json
+< Content-Length: 444
+< Connection: keep-alive
+< Server: gunicorn/19.9.0
+< Access-Control-Allow-Origin: *
+< Access-Control-Allow-Credentials: true
+<
+* Connection #0 to host httpbin.org left intact
+{
+  "args": {
+    "hello": "world"
+  },
+  "data": "",
+  "files": {},
+  "form": {
+    "hello": "world"
+  },
+  "headers": {
+    "Accept": "application/json",
+    "Content-Length": "11",
+    "Content-Type": "application/x-www-form-urlencoded",
+    "Host": "httpbin.org",
+    "X-Amzn-Trace-Id": "Root=1-6a35ffdf-5bfffbe37f1f4fdf39be006e"
+  },
+  "json": null,
+  "origin": "135.0.213.144",
+  "url": "http://httpbin.org/post?hello=world"
+}
 ```
 
 ## Build
@@ -125,4 +167,3 @@ $ valgrind --track-origins=yes --leak-check=full ./curly "https://www.google.com
 - I wasn't aware [auditwheel](https://pypi.org/project/auditwheel/) was used to help with making static wheels
 - Helped debug why the libcurl wasn't statically build, because I had `libraries=["curl"]` in `setup.py` which made it set to dynamic on the previous iteration.
   You can check the commit before this one to see the state of `setup.py`. The remnants are still left as commented out in `Dockerfile`
-
