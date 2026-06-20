@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libssl-dev \
     zlib1g-dev \
     pkg-config \
-    patchelf \ 
+    patchelf \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
@@ -47,5 +47,5 @@ COPY --from=auditor /io/wheelhouse/*.whl .
 
 RUN python3 -m venv .venv && .venv/bin/pip install *.whl
 
-ENTRYPOINT ["/app/.venv/bin/python3", "-c", "import pycurly; print(pycurly.request('http://httpbin.org/json'))"]
-
+CMD ["bash"]
+# ENTRYPOINT ["/app/.venv/bin/python3", "-c", "import pycurly; print(pycurly.get('http://httpbin.org/json'));print(pycurly.post('http://httpbin.org/post?foo=bar', 'hello=world'))"]
